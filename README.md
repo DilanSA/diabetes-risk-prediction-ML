@@ -150,42 +150,13 @@ Este modelo tiene fines exclusivamente educativos y de investigación. No debe u
 
 ### Limitaciones
 
-- Tamaño reducido del conjunto de datos.
-- Población específica de estudio.
-- Ausencia de validación clínica externa.
-- Posible sesgo de selección inherente al dataset original.
-
 ---
 
 ## e. Resultados
 
-### Evaluación Offline
-
-| Modelo | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
-|----------|----------|----------|----------|----------|----------|
-| Logistic Regression | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| Random Forest | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| XGBoost | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| CatBoost | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-
-### Mejor Modelo
-
-Pendiente de resultados experimentales.
-
-### Evaluación Online
-
-No aplica. El conjunto de datos utilizado corresponde a un dataset público sin plataforma externa de evaluación o leaderboard.
 
 ---
 
 ## f. Conclusiones
 
-1. Los modelos de Machine Learning permitieron identificar patrones relevantes asociados a la presencia de diabetes tipo 2.
-
-2. La comparación entre diferentes algoritmos permitió seleccionar el modelo con mejor capacidad predictiva para el problema planteado.
-
-3. Las variables clínicas relacionadas con glucosa, índice de masa corporal y edad mostraron una contribución importante en la clasificación de pacientes.
-
-4. Los resultados obtenidos demuestran el potencial de las técnicas de Machine Learning como herramientas de apoyo para la identificación temprana de individuos con riesgo de diabetes.
-
-5. Se recomienda realizar validaciones adicionales con poblaciones independientes antes de considerar cualquier aplicación clínica del modelo.
+---
