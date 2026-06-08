@@ -237,31 +237,17 @@ No debe utilizarse para diagnóstico clínico ni para la toma de decisiones méd
 
 ### Evaluación Offline
 
-| Modelo | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
-|----------|----------|----------|----------|----------|----------|
-| Logistic Regression | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| Random Forest | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| XGBoost | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| CatBoost | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
+
 
 ### Mejor Modelo
 
-Pendiente de resultados experimentales.
+
 
 ### Evaluación Online
 
-No aplica. El conjunto de datos utilizado corresponde a un dataset público sin plataforma externa de evaluación o leaderboard.
+
 
 ---
 
 ## f. Conclusiones
 
-1. Los algoritmos de Machine Learning permitieron identificar patrones relevantes asociados a la presencia de diabetes tipo 2 utilizando variables clínicas y antropométricas.
-
-2. La comparación sistemática de diferentes modelos permitió seleccionar la alternativa con mejor capacidad predictiva para el problema planteado.
-
-3. Las variables relacionadas con glucosa, índice de masa corporal y edad mostraron una contribución importante en la clasificación de pacientes, en concordancia con factores de riesgo ampliamente descritos en la literatura científica.
-
-4. Los resultados obtenidos evidencian el potencial de las técnicas de Machine Learning como herramientas de apoyo para la identificación temprana de individuos con riesgo de diabetes.
-
-5. Se recomienda realizar validaciones adicionales utilizando poblaciones independientes antes de considerar cualquier aplicación clínica del modelo desarrollado.
