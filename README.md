@@ -1,262 +1,191 @@
 # Predicción Temprana del Riesgo de Diabetes Tipo 2 mediante Modelos de Machine Learning Supervisado
 
-## Descripción del Proyecto
+## a. Problema de Machine Learning
 
-Este proyecto tiene como objetivo desarrollar y evaluar modelos de Machine Learning supervisado para la predicción de diabetes tipo 2 utilizando variables clínicas y antropométricas de pacientes.
+### Contexto
 
-La diabetes mellitus tipo 2 representa uno de los principales problemas de salud pública a nivel mundial. La identificación temprana de individuos con alto riesgo puede contribuir a intervenciones oportunas y mejorar los resultados clínicos. Mediante técnicas de Machine Learning, se busca construir modelos predictivos capaces de identificar pacientes con diabetes a partir de información clínica obtenida durante la atención médica rutinaria.
+La diabetes mellitus tipo 2 es una enfermedad metabólica crónica que constituye uno de los principales desafíos para los sistemas de salud a nivel mundial. La detección temprana de individuos con alto riesgo de desarrollar diabetes puede facilitar intervenciones preventivas oportunas y contribuir a reducir complicaciones asociadas a la enfermedad.
 
----
+El avance de las técnicas de Machine Learning ha permitido desarrollar modelos predictivos capaces de identificar patrones complejos en datos clínicos y apoyar la toma de decisiones en salud.
 
-## Problema de Machine Learning
+### Definición del problema
 
-### Tipo de aprendizaje
-
-**Aprendizaje Supervisado**
-
-### Subtipo
-
-**Clasificación Binaria**
+Este proyecto aborda un problema de aprendizaje supervisado de clasificación binaria cuyo objetivo es predecir la presencia o ausencia de diabetes a partir de variables clínicas y antropométricas de pacientes.
 
 ### Variable objetivo
 
-`Outcome`
+**Outcome**
 
-- 0 = No Diabetes
+- 0 = No diabetes
 - 1 = Diabetes
 
-### Pregunta de investigación
+### Hipótesis
 
-> ¿Es posible predecir la presencia de diabetes tipo 2 utilizando variables clínicas y antropométricas mediante algoritmos de Machine Learning supervisado?
-
----
-
-## Hipótesis
-
-### Hipótesis principal (H1)
-
-> Las variables clínicas incluidas en el dataset contienen información suficiente para construir modelos de Machine Learning capaces de predecir la presencia de diabetes con un desempeño adecuado.
-
-### Hipótesis secundaria (H2)
-
-> Los algoritmos basados en árboles de decisión presentarán un mejor desempeño predictivo que los modelos lineales debido a su capacidad para capturar relaciones no lineales entre las variables clínicas.
+Las variables clínicas incluidas en el conjunto de datos contienen información suficiente para construir modelos de Machine Learning capaces de predecir la presencia de diabetes con un desempeño adecuado.
 
 ---
 
-## Objetivo General
+## b. Diagrama de flujo del proyecto
 
-Desarrollar y evaluar modelos de Machine Learning supervisado para la predicción de diabetes tipo 2 utilizando variables clínicas y antropométricas de pacientes.
+```text
+Dataset Diabetes
+        │
+        ▼
+Análisis Exploratorio (EDA)
+        │
+        ▼
+Limpieza y Preprocesamiento
+        │
+        ▼
+Análisis de Variables
+        │
+        ▼
+División Train/Test
+        │
+        ▼
+Entrenamiento de Modelos
+        │
+        ├── Logistic Regression
+        ├── Random Forest
+        ├── XGBoost
+        └── CatBoost
+        │
+        ▼
+Evaluación de Métricas
+        │
+        ▼
+Selección del Mejor Modelo
+        │
+        ▼
+Interpretación del Modelo
+        │
+        ▼
+Modelo Final
+```
 
 ---
 
-## Objetivos Específicos
+## c. Descripción del Dataset
 
-1. Realizar un análisis exploratorio del conjunto de datos para identificar patrones y características relevantes.
-2. Implementar técnicas de preprocesamiento para mejorar la calidad de los datos.
-3. Entrenar y comparar diferentes algoritmos de clasificación.
-4. Evaluar el desempeño de los modelos utilizando métricas apropiadas para clasificación binaria.
-5. Identificar las variables con mayor contribución en la predicción de diabetes.
+### Fuente
 
----
+Pima Indians Diabetes Database.
 
-## Justificación
+### Descripción General
 
-La aplicación de técnicas de Machine Learning en salud puede contribuir al desarrollo de herramientas de apoyo para la toma de decisiones clínicas. La detección temprana de individuos con riesgo elevado de diabetes podría facilitar intervenciones preventivas y optimizar la asignación de recursos en los sistemas de salud.
+El conjunto de datos contiene información clínica y antropométrica de mujeres de ascendencia Pima, recopilada con el objetivo de estudiar factores asociados a la diabetes mellitus.
 
----
-
-## Dataset
+El dataset contiene **768 registros** y **9 variables**, incluyendo la variable objetivo.
 
 ### Diccionario de Datos
 
-| Variable | Tipo | Descripción |
-|-----------|---------|-------------|
-| Pregnancies | Numérica | Número de embarazos |
-| Glucose | Numérica | Concentración plasmática de glucosa |
-| BloodPressure | Numérica | Presión arterial diastólica (mmHg) |
-| SkinThickness | Numérica | Espesor del pliegue cutáneo del tríceps |
-| Insulin | Numérica | Concentración sérica de insulina |
-| BMI | Numérica | Índice de masa corporal |
-| DiabetesPedigreeFunction | Numérica | Riesgo hereditario de diabetes |
-| Age | Numérica | Edad del paciente |
-| Outcome | Binaria | Presencia de diabetes (1) o ausencia (0) |
+| Variable | Descripción |
+|-----------|-------------|
+| Pregnancies | Número de embarazos |
+| Glucose | Concentración plasmática de glucosa |
+| BloodPressure | Presión arterial diastólica (mmHg) |
+| SkinThickness | Espesor del pliegue cutáneo del tríceps |
+| Insulin | Concentración sérica de insulina |
+| BMI | Índice de masa corporal |
+| DiabetesPedigreeFunction | Función de riesgo hereditario de diabetes |
+| Age | Edad del paciente |
+| Outcome | Diagnóstico de diabetes (0 = No, 1 = Sí) |
+
+### Calidad de los datos
+
+Durante el análisis exploratorio se identificaron valores iguales a cero en variables fisiológicamente imposibles, como glucosa, presión arterial, insulina y BMI. Estos valores fueron considerados como datos faltantes implícitos y tratados durante la etapa de preprocesamiento.
 
 ---
 
-## Estructura del Proyecto
+## d. Model Card
 
-```text
-diabetes-risk-prediction-ml/
-│
-├── README.md
-│
-├── data/
-│   ├── raw/
-│   │   └── diabetes.csv
-│   │
-│   └── processed/
-│       └── diabetes_clean.csv
-│
-├── notebooks/
-│   ├── 01_data_preprocessing.ipynb
-│   └── 02_machine_learning_and_model_interpretability.ipynb
-│
-├── artifacts/
-│   ├── models/
-│   │   └── best_model.pkl
-│   │
-│   ├── metrics/
-│   │   └── metrics.csv
-│   │
-│   └── figures/
-│
-├── src/
-│   ├── train.py
-│   ├── predict.py
-│   └── utils.py
-│
-├── docs/
-│   ├── model_card.md
-│   └── git_strategy.md
-│
-├── requirements.txt
-├── .gitignore
-└── LICENSE
-```
+### Información General
 
----
+| Campo | Descripción |
+|---------|-------------|
+| Nombre del modelo | Diabetes Risk Prediction Model |
+| Versión | 1.0.0 |
+| Tipo | Clasificación Binaria |
+| Framework | Scikit-learn / XGBoost / CatBoost |
 
-## Flujo de Trabajo
+### Objetivo
 
-```text
-Dataset
-   │
-   ▼
-Data Exploration
-   │
-   ▼
-Data Cleaning
-   │
-   ▼
-Feature Analysis
-   │
-   ▼
-Train/Test Split
-   │
-   ▼
-Model Training
-   │
-   ├── Logistic Regression
-   ├── Random Forest
-   ├── XGBoost
-   └── CatBoost
-   │
-   ▼
-Model Evaluation
-   │
-   ▼
-Model Selection
-   │
-   ▼
-Model Interpretation
-   │
-   ▼
-Final Artifact
-```
+Predecir la presencia de diabetes tipo 2 utilizando variables clínicas y antropométricas.
 
----
+### Usuarios previstos
 
-## Modelos a Evaluar
+- Profesionales de salud
+- Investigadores biomédicos
+- Estudiantes de ciencia de datos aplicada a salud
 
-### Baseline
-- Logistic Regression
+### Variables de entrada
 
-### Ensemble
-- Random Forest
+- Pregnancies
+- Glucose
+- BloodPressure
+- SkinThickness
+- Insulin
+- BMI
+- DiabetesPedigreeFunction
+- Age
 
-### Gradient Boosting
-- XGBoost
+### Variable de salida
 
-### Gradient Boosting Avanzado
-- CatBoost
+**Outcome**
 
----
+- 0 = No diabetes
+- 1 = Diabetes
 
-## Métricas de Evaluación
-
-### Métrica Principal
+### Métricas de evaluación
 
 - ROC-AUC
-
-### Métricas Secundarias
-
 - Accuracy
 - Precision
 - Recall
 - F1-Score
 
-### Justificación
+### Consideraciones éticas
 
-Dado que el costo de no identificar correctamente a un paciente con diabetes puede ser elevado, se priorizará el análisis de Recall y ROC-AUC durante la evaluación de los modelos.
+Este modelo tiene fines exclusivamente educativos y de investigación. No debe utilizarse como herramienta diagnóstica ni para la toma de decisiones clínicas sin validación externa y supervisión profesional.
 
----
+### Limitaciones
 
-## Interpretabilidad
-
-Para comprender el comportamiento de los modelos se evaluarán:
-
-- Feature Importance
-- SHAP (SHapley Additive exPlanations)
-
-Preguntas a responder:
-
-- ¿Cuál es la variable más importante para la predicción?
-- ¿La glucosa es el principal predictor?
-- ¿Qué impacto tienen el BMI y la edad?
-- ¿Cómo contribuyen las variables clínicas al resultado final?
+- Tamaño reducido del conjunto de datos.
+- Población específica de estudio.
+- Ausencia de validación clínica externa.
+- Posible sesgo de selección inherente al dataset original.
 
 ---
 
-## Estrategia Git
+## e. Resultados
 
-Se utilizará una estrategia simplificada basada en Git Flow.
+### Evaluación Offline
 
-```text
-main
-  │
-  └── development
-```
+| Modelo | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
+|----------|----------|----------|----------|----------|----------|
+| Logistic Regression | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
+| Random Forest | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
+| XGBoost | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
+| CatBoost | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
 
-Proceso:
+### Mejor Modelo
 
-1. Crear la rama `development`.
-2. Realizar el desarrollo y pruebas en dicha rama.
-3. Crear Pull Request hacia `main`.
-4. Aprobar y fusionar cambios.
-5. Crear Release estable.
+Pendiente de resultados experimentales.
 
----
+### Evaluación Online
 
-## Release
-
-### Versión
-
-`v1.0.0`
-
-### Release Notes
-
-- Exploratory Data Analysis
-- Data Preprocessing
-- Model Training
-- Model Comparison
-- Model Interpretation
-- Documentation
-- Model Card
+No aplica. El conjunto de datos utilizado corresponde a un dataset público sin plataforma externa de evaluación o leaderboard.
 
 ---
 
-## Resultado Esperado
+## f. Conclusiones
 
-Se espera identificar el modelo con mejor capacidad predictiva para la detección de diabetes tipo 2 y determinar cuáles son las variables clínicas más relevantes en la clasificación de pacientes.
+1. Los modelos de Machine Learning permitieron identificar patrones relevantes asociados a la presencia de diabetes tipo 2.
 
-Asimismo, se busca demostrar la aplicación de buenas prácticas de Machine Learning Engineering mediante documentación, control de versiones, reproducibilidad y organización estructurada del proyecto.
+2. La comparación entre diferentes algoritmos permitió seleccionar el modelo con mejor capacidad predictiva para el problema planteado.
+
+3. Las variables clínicas relacionadas con glucosa, índice de masa corporal y edad mostraron una contribución importante en la clasificación de pacientes.
+
+4. Los resultados obtenidos demuestran el potencial de las técnicas de Machine Learning como herramientas de apoyo para la identificación temprana de individuos con riesgo de diabetes.
+
+5. Se recomienda realizar validaciones adicionales con poblaciones independientes antes de considerar cualquier aplicación clínica del modelo.
