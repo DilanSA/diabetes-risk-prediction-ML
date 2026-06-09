@@ -222,3 +222,28 @@ Random Forest fue seleccionado como modelo final debido a que obtuvo el mejor de
 5. Los resultados obtenidos evidencian que los modelos de Machine Learning pueden contribuir a la identificación temprana de individuos con riesgo de diabetes utilizando únicamente variables clínicas y antropométricas.
 
 6. Debido a que el estudio se realizó sobre un conjunto de datos público y una población específica, se recomienda realizar validaciones adicionales con cohortes independientes antes de considerar cualquier aplicación clínica o asistencial del modelo desarrollado.
+---
+
+## g. Estrategia de Git Utilizada
+
+Para la gestión del proyecto se utilizó una estrategia simplificada inspirada en Git Flow, con el objetivo de mantener una separación entre el desarrollo de nuevas funcionalidades y la versión estable del proyecto.
+
+### Ramas utilizadas
+
+- **main:** contiene la versión estable y final del proyecto.
+- **development:** utilizada para realizar modificaciones, mejoras y actualizaciones antes de integrarlas a la rama principal.
+
+### Flujo de trabajo
+
+1. Se creó la rama `development` a partir de `main`.
+2. Los cambios fueron desarrollados y documentados en la rama `development`.
+3. Una vez validados los cambios, se creó un Pull Request desde `development` hacia `main`.
+4. El Pull Request fue revisado y fusionado exitosamente mediante un Merge.
+5. Finalmente, se generó la versión estable **v1.0.0** utilizando la funcionalidad de Releases de GitHub.
+
+### Beneficios de la estrategia utilizada
+
+- Mantener una versión estable del proyecto en la rama principal.
+- Facilitar el seguimiento de cambios mediante Pull Requests.
+- Permitir la trazabilidad del desarrollo y las modificaciones realizadas.
+- Seguir buenas prácticas de gestión de proyectos de Machine Learning y Data Science.
