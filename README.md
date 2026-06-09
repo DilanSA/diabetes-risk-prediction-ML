@@ -80,8 +80,8 @@ Durante el análisis exploratorio se identificaron valores iguales a cero en var
 | Objetivo | Predicción temprana del riesgo de diabetes tipo 2 |
 | Algoritmo | Random Forest |
 | Framework | Scikit-Learn |
-| Autor | Dilan Suárez |
-| Versión | 1.0 |
+| Autor | Dilan Victor Suárez Agüero |
+| Versión | 1.0.0 |
 | Fecha | Junio 2026 |
 
 ### 2. Uso Previsto
