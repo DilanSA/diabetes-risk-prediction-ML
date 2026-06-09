@@ -236,7 +236,7 @@ Para la gestión del proyecto se utilizó una estrategia simplificada inspirada 
 ### Flujo de trabajo
 
 1. Se creó la rama `development` a partir de `main`.
-2. Los cambios fueron desarrollados y documentados en la rama `development`.
+2. Algunos cambios finales fueron desarrollados y documentados en la rama `development`.
 3. Una vez validados los cambios, se creó un Pull Request desde `development` hacia `main`.
 4. El Pull Request fue revisado y fusionado exitosamente mediante un Merge.
 5. Finalmente, se generó la versión estable **v1.0.0** utilizando la funcionalidad de Releases de GitHub.
