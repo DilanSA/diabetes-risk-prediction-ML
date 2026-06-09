@@ -27,14 +27,17 @@ Las variables clínicas incluidas en el conjunto de datos contienen información
 
 ## b. Diagrama de flujo del proyecto
 
-![Diagrama de flujo del proyecto](docs/Project_flowchart.png)
+<p align="center">
+  <img src="docs/Project_flowchart.png" alt="Diagrama de flujo" width="700">
+</p>
+
 ---
 
 ## c. Descripción del Dataset con su Respectivo Diccionario de Datos
 
 ### Fuente
 
-Pima Indians Diabetes Database.
+Pima Indians Diabetes Database (https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database).
 
 ### Descripción General
 
@@ -68,57 +71,50 @@ Durante el análisis exploratorio se identificaron valores iguales a cero en var
 
 ## d. Model Card
 
-### Resumen del Modelo
+### 1. Detalles del Modelo
 
-Este proyecto desarrolla y compara diferentes modelos de Machine Learning para la predicción temprana de diabetes tipo 2 utilizando variables clínicas y antropométricas.
+| Campo | Descripción |
+|---------|---------|
+| Nombre del modelo | Random Forest Classifier |
+| Tipo de tarea | Clasificación binaria |
+| Objetivo | Predicción temprana del riesgo de diabetes tipo 2 |
+| Algoritmo | Random Forest |
+| Framework | Scikit-Learn |
+| Autor | Dilan Suárez |
+| Versión | 1.0 |
+| Fecha | Junio 2026 |
 
-El objetivo es identificar el algoritmo con mejor desempeño predictivo y analizar las variables que tienen mayor influencia en la clasificación de pacientes con y sin diabetes.
+---
 
-### Detalles del Modelo
-
-| Característica | Descripción |
-|---------------|-------------|
-| Nombre del modelo | Diabetes Risk Prediction Model |
-| Versión | 1.0.0 |
-| Tipo de problema | Clasificación binaria |
-| Variable objetivo | Outcome |
-| Framework principal | Scikit-Learn |
-| Algoritmos evaluados | Logistic Regression, Random Forest, XGBoost y CatBoost |
-| Fecha de creación | Junio 2026 |
-
-### Uso Previsto
-
-#### Uso principal
-
-Predecir la probabilidad de que un individuo presente diabetes tipo 2 utilizando variables clínicas y antropométricas.
+### 2. Uso Previsto
 
 #### Usuarios previstos
 
-- Estudiantes de Machine Learning.
-- Investigadores biomédicos.
-- Profesionales interesados en aplicaciones de Inteligencia Artificial en salud.
+- Estudiantes de Ciencia de Datos.
+- Investigadores en salud pública.
+- Profesionales interesados en Machine Learning aplicado a salud.
+
+#### Casos de uso
+
+- Predicción del riesgo de diabetes tipo 2.
+- Fines educativos y académicos.
+- Demostración de técnicas de clasificación supervisada.
 
 #### Usos no recomendados
 
 - Diagnóstico clínico.
 - Toma de decisiones médicas.
-- Evaluación individual de pacientes en entornos asistenciales.
+- Uso hospitalario o asistencial sin validación adicional.
 
-### Datos Utilizados
+---
 
-#### Dataset
+### 3. Datos de Entrenamiento
 
-Pima Indians Diabetes Database.
+**Dataset:** Pima Indians Diabetes Dataset
 
-#### Tamaño del Dataset
+**Número de registros:** 768
 
-| Característica | Valor |
-|---------------|--------|
-| Observaciones | 768 |
-| Variables predictoras | 8 |
-| Variable objetivo | 1 |
-
-#### Variables de Entrada
+**Variables predictoras:**
 
 - Pregnancies
 - Glucose
@@ -129,73 +125,86 @@ Pima Indians Diabetes Database.
 - DiabetesPedigreeFunction
 - Age
 
-#### Variable de Salida
+**Variable objetivo:**
 
-**Outcome**
+- Outcome (0 = No diabetes, 1 = Diabetes)
 
-- 0 = No diabetes
-- 1 = Diabetes
+**Preprocesamiento aplicado:**
 
-### Preprocesamiento
-
-Las actividades realizadas incluyen:
-
-- Análisis exploratorio de datos.
 - Identificación de valores fisiológicamente imposibles.
-- Tratamiento de valores faltantes implícitos.
-- Imputación de datos faltantes.
-- División de datos en entrenamiento y prueba.
-- Escalamiento de variables cuando fue requerido por el algoritmo.
+- Reemplazo de ceros por valores faltantes implícitos.
+- Imputación mediante mediana.
+- División Train/Test (80/20).
 
-### Metodología
+---
 
-Se evaluaron múltiples algoritmos de clasificación supervisada:
+### 4. Factores Relevantes
 
-1. Logistic Regression
-2. Random Forest Classifier
-3. XGBoost Classifier
-4. CatBoost Classifier
+Las variables con mayor influencia en la predicción fueron:
 
-La selección del modelo final se realizó mediante comparación de métricas de desempeño sobre datos no utilizados durante el entrenamiento.
+| Variable | Importancia |
+|-----------|-----------:|
+| Glucose | 0.274 |
+| BMI | 0.162 |
+| DiabetesPedigreeFunction | 0.125 |
+| Age | 0.113 |
 
-### Métricas de Evaluación
+Estos factores coinciden con factores de riesgo reconocidos para diabetes tipo 2.
 
-#### Métrica principal
+---
 
-- ROC-AUC
+### 5. Métricas de Evaluación
 
-#### Métricas secundarias
+| Métrica | Valor |
+|----------|----------:|
+| Accuracy | 0.7792 |
+| Precision | 0.7273 |
+| Recall | 0.5926 |
+| F1-Score | 0.6531 |
+| ROC-AUC | 0.8192 |
 
-- Accuracy
-- Precision
-- Recall
-- F1-Score
+---
 
-### Interpretabilidad
+### 6. Datos de Evaluación
 
-Para comprender el comportamiento del modelo se analizará la importancia relativa de las variables clínicas mediante técnicas de Feature Importance y, de manera opcional, SHAP (SHapley Additive Explanations).
+La evaluación se realizó sobre un conjunto de prueba independiente correspondiente al 20% del dataset original.
 
-### Consideraciones Éticas
+**Tamaño del conjunto de prueba:** 154 registros.
 
-Este modelo fue desarrollado exclusivamente con fines educativos y de investigación.
+**Distribución de clases:**
 
-No debe utilizarse para diagnóstico clínico ni para la toma de decisiones médicas sin validación clínica independiente.
+- No diabetes: 100 registros
+- Diabetes: 54 registros
 
-### Limitaciones
+---
 
-- El conjunto de datos corresponde a una población específica.
-- El tamaño muestral es relativamente pequeño.
-- No se realizó validación externa en otras poblaciones.
-- Los resultados no garantizan desempeño equivalente en entornos clínicos reales.
+### 7. Consideraciones Éticas
 
-### Trabajo Futuro
+- El dataset representa una población específica y puede no generalizar adecuadamente a otras poblaciones.
+- El modelo puede verse afectado por sesgos inherentes al conjunto de datos original.
+- Los resultados deben interpretarse únicamente con fines educativos y de investigación.
 
-- Incorporar nuevas variables clínicas y bioquímicas.
-- Validar el modelo en poblaciones independientes.
-- Explorar técnicas avanzadas de explicabilidad.
-- Comparar algoritmos adicionales.
-- Desarrollar herramientas para inferencia de nuevos casos.
+---
 
+### 8. Limitaciones y Recomendaciones
+
+#### Limitaciones
+
+- Dataset relativamente pequeño.
+- Ausencia de validación externa.
+- Variables clínicas limitadas.
+
+#### Recomendaciones
+
+- Validar el modelo con cohortes independientes.
+- Incorporar variables clínicas adicionales.
+- Evaluar el desempeño en diferentes poblaciones antes de cualquier aplicación real.
+
+---
+
+### 9. Conclusión
+
+El modelo Random Forest obtuvo el mejor desempeño entre los algoritmos evaluados, mostrando capacidad para identificar pacientes con riesgo de diabetes tipo 2 a partir de variables clínicas básicas. Sin embargo, su uso debe limitarse a fines educativos y de investigación hasta contar con validaciones adicionales.
 ---
 
 ## e. Resultados con Métricas de Evaluación Offline y Online
@@ -214,8 +223,6 @@ No debe utilizarse para diagnóstico clínico ni para la toma de decisiones méd
 Random Forest fue seleccionado como modelo final debido a que obtuvo el mejor desempeño global, alcanzando una Accuracy de 0.7792, Precision de 0.7273, F1-Score de 0.6531 y un ROC-AUC de 0.8192.
 
 ---
-
-## f. Conclusiones
 
 ## f. Conclusiones
 
