@@ -237,17 +237,31 @@ No debe utilizarse para diagnóstico clínico ni para la toma de decisiones méd
 
 ### Evaluación Offline
 
-
+| Modelo              | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
+| ------------------- | -------: | --------: | -----: | -------: | ------: |
+| Logistic Regression |   0.7078 |    0.6000 | 0.5000 |   0.5455 |  0.8130 |
+| Random Forest       |   0.7792 |    0.7273 | 0.5926 |   0.6531 |  0.8192 |
+| XGBoost             |   0.7597 |    0.6735 | 0.6111 |   0.6408 |  0.8081 |
+| CatBoost            |   0.7403 |    0.6400 | 0.5926 |   0.6154 |  0.8224 |
 
 ### Mejor Modelo
 
-
-
-### Evaluación Online
-
-
+Random Forest fue seleccionado como modelo final debido a que obtuvo el mejor desempeño global, alcanzando una Accuracy de 0.7792, Precision de 0.7273, F1-Score de 0.6531 y un ROC-AUC de 0.8192.
 
 ---
 
 ## f. Conclusiones
 
+## f. Conclusiones
+
+1. Se desarrolló un flujo completo de Machine Learning para la predicción de diabetes tipo 2, incluyendo análisis exploratorio de datos, preprocesamiento, entrenamiento de modelos y evaluación de desempeño.
+
+2. Durante la etapa de preprocesamiento se identificaron valores fisiológicamente imposibles en variables como glucosa, presión arterial, espesor del pliegue cutáneo, insulina e índice de masa corporal. Estos valores fueron tratados como datos faltantes implícitos e imputados mediante la mediana.
+
+3. Se compararon cuatro algoritmos de clasificación supervisada: Logistic Regression, Random Forest, XGBoost y CatBoost. Entre ellos, Random Forest presentó el mejor desempeño global, alcanzando una Accuracy de 0.7792, Precision de 0.7273, F1-Score de 0.6531 y ROC-AUC de 0.8192.
+
+4. El análisis de importancia de variables mostró que la concentración de glucosa fue el predictor más relevante para la clasificación de pacientes con diabetes, seguida por el índice de masa corporal (BMI), la función de riesgo hereditario de diabetes y la edad. Estos hallazgos son consistentes con factores de riesgo ampliamente descritos en la literatura médica.
+
+5. Los resultados obtenidos evidencian que los modelos de Machine Learning pueden contribuir a la identificación temprana de individuos con riesgo de diabetes utilizando únicamente variables clínicas y antropométricas.
+
+6. Debido a que el estudio se realizó sobre un conjunto de datos público y una población específica, se recomienda realizar validaciones adicionales con cohortes independientes antes de considerar cualquier aplicación clínica o asistencial del modelo desarrollado.
