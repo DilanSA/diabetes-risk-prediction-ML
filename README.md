@@ -28,29 +28,41 @@ Las variables clínicas incluidas en el conjunto de datos contienen información
 ## b. Diagrama de flujo del proyecto
 
 ```
-diabetes-risk-prediction-ML/
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── notebooks/
-│
-├── artifacts/
-│   ├── models/
-│   ├── metrics/
-│   └── figures/
-│
-├── src/
-│
-├── docs/
-│
-├── README.md
-├── requirements.txt
-└── .gitignore
-        
-```
+## b. Diagrama de flujo del proyecto
 
+```mermaid
+flowchart TD
+
+    A[data/raw/diabetes.csv] --> B[01_data_preprocessing.ipynb]
+
+    B --> C[data/processed/diabetes_clean.csv]
+
+    C --> D[02_machine_learning_and_llms.ipynb]
+
+    D --> E[Logistic Regression]
+    D --> F[Random Forest]
+    D --> G[XGBoost]
+    D --> H[CatBoost]
+
+    E --> I[Comparación de Modelos]
+    F --> I
+    G --> I
+    H --> I
+
+    I --> J[Selección del Mejor Modelo]
+
+    J --> K[Feature Importance]
+
+    J --> L[artifacts/models/best_model.pkl]
+
+    I --> M[artifacts/metrics/metrics.csv]
+
+    K --> N[artifacts/figures/feature_importance.png]
+
+    L --> O[README.md]
+    M --> O
+    N --> O
+```
 ---
 
 ## c. Descripción del Dataset con su Respectivo Diccionario de Datos
