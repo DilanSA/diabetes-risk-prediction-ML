@@ -82,7 +82,7 @@ Durante el análisis exploratorio se identificaron valores iguales a cero en var
 | Framework | Scikit-Learn |
 | Autor | Dilan Victor Suárez Agüero |
 | Versión | 1.0.0 |
-| Fecha | Junio 2026 |
+| Fecha | junio 2026 |
 
 ### 2. Uso Previsto
 
