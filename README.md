@@ -30,39 +30,38 @@ Las variables clínicas incluidas en el conjunto de datos contienen información
 ```
 ## b. Diagrama de flujo del proyecto
 
-```mermaid
-flowchart TD
-
-    A[data/raw/diabetes.csv] --> B[01_data_preprocessing.ipynb]
-
-    B --> C[data/processed/diabetes_clean.csv]
-
-    C --> D[02_machine_learning_and_llms.ipynb]
-
-    D --> E[Logistic Regression]
-    D --> F[Random Forest]
-    D --> G[XGBoost]
-    D --> H[CatBoost]
-
-    E --> I[Comparación de Modelos]
-    F --> I
-    G --> I
-    H --> I
-
-    I --> J[Selección del Mejor Modelo]
-
-    J --> K[Feature Importance]
-
-    J --> L[artifacts/models/best_model.pkl]
-
-    I --> M[artifacts/metrics/metrics.csv]
-
-    K --> N[artifacts/figures/feature_importance.png]
-
-    L --> O[README.md]
-    M --> O
-    N --> O
-```
+data/raw/diabetes.csv
+            │
+            ▼
+01_data_preprocessing.ipynb
+            │
+            ▼
+data/processed/diabetes_clean.csv
+            │
+            ▼
+02_machine_learning_and_llms.ipynb
+            │
+            ▼
+Comparación de Modelos
+(Logistic Regression,
+ Random Forest,
+ XGBoost,
+ CatBoost)
+            │
+            ▼
+Selección del Mejor Modelo
+(Random Forest)
+            │
+     ┌──────┴──────┐
+     ▼             ▼
+Feature       best_model.pkl
+Importance
+     │
+     ▼
+feature_importance.png
+            │
+            ▼
+README.md / Resultados Finales
 ---
 
 ## c. Descripción del Dataset con su Respectivo Diccionario de Datos
