@@ -27,40 +27,28 @@ Las variables clínicas incluidas en el conjunto de datos contienen información
 
 ## b. Diagrama de flujo del proyecto
 
-```text
-Dataset Diabetes
-        │
-        ▼
-Análisis Exploratorio de Datos (EDA)
-        │
-        ▼
-Limpieza y Preprocesamiento
-        │
-        ▼
-Análisis de Variables
-        │
-        ▼
-División Train/Test
-        │
-        ▼
-Entrenamiento de Modelos
-        │
-        ├── Logistic Regression
-        ├── Random Forest
-        ├── XGBoost
-        └── CatBoost
-        │
-        ▼
-Evaluación de Métricas
-        │
-        ▼
-Selección del Mejor Modelo
-        │
-        ▼
-Interpretación del Modelo
-        │
-        ▼
-Modelo Final
+```
+diabetes-risk-prediction-ML/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── notebooks/
+│
+├── artifacts/
+│   ├── models/
+│   ├── metrics/
+│   └── figures/
+│
+├── src/
+│
+├── docs/
+│
+├── README.md
+├── requirements.txt
+└── .gitignore
+        
 ```
 
 ---
