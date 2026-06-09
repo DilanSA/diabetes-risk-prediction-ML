@@ -27,7 +27,7 @@ Las variables clínicas incluidas en el conjunto de datos contienen información
 
 ## b. Diagrama de flujo del proyecto
 
-![Diagrama de flujo del proyecto](docs/project_flowchart.png)
+![Diagrama de flujo del proyecto](docs/Project_flowchart.png)
 ---
 
 ## c. Descripción del Dataset con su Respectivo Diccionario de Datos
