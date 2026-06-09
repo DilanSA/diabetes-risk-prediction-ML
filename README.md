@@ -84,8 +84,6 @@ Durante el análisis exploratorio se identificaron valores iguales a cero en var
 | Versión | 1.0 |
 | Fecha | Junio 2026 |
 
----
-
 ### 2. Uso Previsto
 
 #### Usuarios previstos
@@ -105,8 +103,6 @@ Durante el análisis exploratorio se identificaron valores iguales a cero en var
 - Diagnóstico clínico.
 - Toma de decisiones médicas.
 - Uso hospitalario o asistencial sin validación adicional.
-
----
 
 ### 3. Datos de Entrenamiento
 
@@ -136,8 +132,6 @@ Durante el análisis exploratorio se identificaron valores iguales a cero en var
 - Imputación mediante mediana.
 - División Train/Test (80/20).
 
----
-
 ### 4. Factores Relevantes
 
 Las variables con mayor influencia en la predicción fueron:
@@ -151,8 +145,6 @@ Las variables con mayor influencia en la predicción fueron:
 
 Estos factores coinciden con factores de riesgo reconocidos para diabetes tipo 2.
 
----
-
 ### 5. Métricas de Evaluación
 
 | Métrica | Valor |
@@ -162,8 +154,6 @@ Estos factores coinciden con factores de riesgo reconocidos para diabetes tipo 2
 | Recall | 0.5926 |
 | F1-Score | 0.6531 |
 | ROC-AUC | 0.8192 |
-
----
 
 ### 6. Datos de Evaluación
 
@@ -176,15 +166,11 @@ La evaluación se realizó sobre un conjunto de prueba independiente correspondi
 - No diabetes: 100 registros
 - Diabetes: 54 registros
 
----
-
 ### 7. Consideraciones Éticas
 
 - El dataset representa una población específica y puede no generalizar adecuadamente a otras poblaciones.
 - El modelo puede verse afectado por sesgos inherentes al conjunto de datos original.
 - Los resultados deben interpretarse únicamente con fines educativos y de investigación.
-
----
 
 ### 8. Limitaciones y Recomendaciones
 
@@ -200,11 +186,10 @@ La evaluación se realizó sobre un conjunto de prueba independiente correspondi
 - Incorporar variables clínicas adicionales.
 - Evaluar el desempeño en diferentes poblaciones antes de cualquier aplicación real.
 
----
-
 ### 9. Conclusión
 
 El modelo Random Forest obtuvo el mejor desempeño entre los algoritmos evaluados, mostrando capacidad para identificar pacientes con riesgo de diabetes tipo 2 a partir de variables clínicas básicas. Sin embargo, su uso debe limitarse a fines educativos y de investigación hasta contar con validaciones adicionales.
+
 ---
 
 ## e. Resultados con Métricas de Evaluación Offline y Online
