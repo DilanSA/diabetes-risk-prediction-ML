@@ -259,11 +259,6 @@ Para incrementar la interpretabilidad del modelo se implementó **SHAP (SHapley 
 | 7 | SkinThickness | 0.0204 |
 | 8 | BloodPressure | 0.0144 |
 
-#### Artefactos generados
-
-- `artifacts/figures/shap_summary.png`
-- `artifacts/metrics/shap_feature_importance.csv`
-
 #### Interpretación
 
 Los resultados muestran que la glucosa, el índice de masa corporal y la edad constituyen los principales factores utilizados por el modelo para identificar pacientes con riesgo de diabetes, hallazgo consistente con la evidencia clínica disponible.
@@ -337,6 +332,7 @@ Se desarrolló una implementación simplificada de **Retrieval-Augmented Generat
 6. Debido a que el estudio se realizó sobre un conjunto de datos público y una población específica, se recomienda realizar validaciones adicionales con cohortes independientes antes de considerar cualquier aplicación clínica o asistencial del modelo desarrollado.
 
 7. La incorporación de MLflow, SHAP, Gemini y una estrategia básica de Retrieval-Augmented Generation permitió evolucionar el proyecto desde un modelo predictivo tradicional hacia una solución reproducible, interpretable y asistida por inteligencia artificial generativa.
+   
 ---
 
 ## h. Estrategia de Git Utilizada
@@ -354,7 +350,7 @@ Para la gestión del proyecto se utilizó una estrategia simplificada inspirada 
 2. Algunos cambios finales fueron desarrollados y documentados en la rama `development`.
 3. Una vez validados los cambios, se creó un Pull Request desde `development` hacia `main`.
 4. El Pull Request fue revisado y fusionado exitosamente mediante un Merge.
-5. Finalmente, se generó la versión estable **v1.0.0** utilizando la funcionalidad de Releases de GitHub.
+5. Finalmente, se generó la versión estable **v2.0.0** utilizando la funcionalidad de Releases de GitHub.
 
 ### Beneficios de la estrategia utilizada
 
