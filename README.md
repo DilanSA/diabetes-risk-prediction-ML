@@ -307,32 +307,9 @@ Se desarrolló una implementación simplificada de **Retrieval-Augmented Generat
 
 ### 5. Arquitectura Final del Proyecto
 
-```text
-Dataset
-   │
-   ▼
-Preprocessing
-   │
-   ▼
-Random Forest
-   │
-   ├── MLflow Tracking
-   │
-   ├── SHAP Explainability
-   │
-   └── Top Features
-           │
-           ▼
-      Knowledge Retrieval
-           │
-           ▼
-        Gemini LLM
-           │
-           ▼
- Clinical Interpretation
-```
-
----
+<p align="center">
+  <img src="docs/Project_flowchart_v2.png" alt="Diagrama de flujo" width="700">
+</p>
 
 ### 6. Artefactos Generados
 
