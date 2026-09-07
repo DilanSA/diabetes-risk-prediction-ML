@@ -1,0 +1,387 @@
+# Predicción Temprana del Riesgo de Diabetes Tipo 2 mediante Modelos de Machine Learning Supervisado
+
+## a. Problema de Machine Learning
+
+### Contexto
+
+La diabetes mellitus tipo 2 es una enfermedad metabólica crónica que representa uno de los principales desafíos para los sistemas de salud a nivel mundial. Su detección temprana permite implementar intervenciones oportunas que contribuyen a reducir complicaciones asociadas, mejorar la calidad de vida de los pacientes y optimizar el uso de recursos sanitarios.
+
+Los avances en Machine Learning han permitido desarrollar modelos predictivos capaces de identificar patrones complejos en datos clínicos, facilitando la estratificación de riesgo y el apoyo a la toma de decisiones en salud.
+
+### Definición del problema
+
+Este proyecto aborda un problema de aprendizaje supervisado de clasificación binaria cuyo objetivo es predecir la presencia o ausencia de diabetes utilizando variables clínicas y antropométricas de pacientes.
+
+### Variable objetivo
+
+**Outcome**
+
+- 0 = No diabetes
+- 1 = Diabetes
+
+### Hipótesis
+
+Las variables clínicas incluidas en el conjunto de datos contienen información suficiente para construir modelos de Machine Learning capaces de predecir la presencia de diabetes con un desempeño adecuado.
+
+---
+
+## b. Diagrama de flujo del proyecto
+
+<p align="center">
+  <img src="docs/Project_flowchart.png" alt="Diagrama de flujo" width="700">
+</p>
+
+---
+
+## c. Descripción del Dataset con su Respectivo Diccionario de Datos
+
+### Fuente
+
+Pima Indians Diabetes Database (https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database).
+
+### Descripción General
+
+El conjunto de datos contiene información clínica y antropométrica de mujeres adultas pertenecientes a la población indígena Pima. El objetivo original del estudio fue identificar factores asociados al desarrollo de diabetes mellitus.
+
+El dataset contiene:
+
+- 768 observaciones
+- 8 variables predictoras
+- 1 variable objetivo
+
+### Diccionario de Datos
+
+| Variable | Descripción |
+|-----------|-------------|
+| Pregnancies | Número de embarazos |
+| Glucose | Concentración plasmática de glucosa |
+| BloodPressure | Presión arterial diastólica (mmHg) |
+| SkinThickness | Espesor del pliegue cutáneo del tríceps |
+| Insulin | Concentración sérica de insulina |
+| BMI | Índice de masa corporal |
+| DiabetesPedigreeFunction | Función de riesgo hereditario de diabetes |
+| Age | Edad del paciente |
+| Outcome | Diagnóstico de diabetes (0 = No, 1 = Sí) |
+
+### Calidad de los Datos
+
+Durante el análisis exploratorio se identificaron valores iguales a cero en variables fisiológicamente imposibles como glucosa, presión arterial, espesor del pliegue cutáneo, insulina e índice de masa corporal. Estos valores fueron tratados como datos faltantes implícitos y corregidos durante la etapa de preprocesamiento.
+
+---
+
+## d. Model Card
+
+### 1. Detalles del Modelo
+
+| Campo | Descripción |
+|---------|---------|
+| Nombre del modelo | Random Forest Classifier |
+| Tipo de tarea | Clasificación binaria |
+| Objetivo | Predicción temprana del riesgo de diabetes tipo 2 |
+| Algoritmo | Random Forest |
+| Framework | Scikit-Learn |
+| Autor | Dilan Victor Suárez Agüero |
+| Versión | 1.0.0 |
+| Fecha | junio 2026 |
+
+### 2. Uso Previsto
+
+#### Usuarios previstos
+
+- Estudiantes de Ciencia de Datos.
+- Investigadores en salud pública.
+- Profesionales interesados en Machine Learning aplicado a salud.
+
+#### Casos de uso
+
+- Predicción del riesgo de diabetes tipo 2.
+- Fines educativos y académicos.
+- Demostración de técnicas de clasificación supervisada.
+
+#### Usos no recomendados
+
+- Diagnóstico clínico.
+- Toma de decisiones médicas.
+- Uso hospitalario o asistencial sin validación adicional.
+
+### 3. Datos de Entrenamiento
+
+**Dataset:** Pima Indians Diabetes Dataset
+
+**Número de registros:** 768
+
+**Variables predictoras:**
+
+- Pregnancies
+- Glucose
+- BloodPressure
+- SkinThickness
+- Insulin
+- BMI
+- DiabetesPedigreeFunction
+- Age
+
+**Variable objetivo:**
+
+- Outcome (0 = No diabetes, 1 = Diabetes)
+
+**Preprocesamiento aplicado:**
+
+- Identificación de valores fisiológicamente imposibles.
+- Reemplazo de ceros por valores faltantes implícitos.
+- Imputación mediante mediana.
+- División Train/Test (80/20).
+
+### 4. Factores Relevantes
+
+Las variables con mayor influencia en la predicción fueron:
+
+| Variable | Importancia |
+|-----------|-----------:|
+| Glucose | 0.274 |
+| BMI | 0.162 |
+| DiabetesPedigreeFunction | 0.125 |
+| Age | 0.113 |
+
+Estos factores coinciden con factores de riesgo reconocidos para diabetes tipo 2.
+
+### 5. Métricas de Evaluación
+
+| Métrica | Valor |
+|----------|----------:|
+| Accuracy | 0.7792 |
+| Precision | 0.7273 |
+| Recall | 0.5926 |
+| F1-Score | 0.6531 |
+| ROC-AUC | 0.8192 |
+
+### 6. Datos de Evaluación
+
+La evaluación se realizó sobre un conjunto de prueba independiente correspondiente al 20% del dataset original.
+
+**Tamaño del conjunto de prueba:** 154 registros.
+
+**Distribución de clases:**
+
+- No diabetes: 100 registros
+- Diabetes: 54 registros
+
+### 7. Consideraciones Éticas
+
+- El dataset representa una población específica y puede no generalizar adecuadamente a otras poblaciones.
+- El modelo puede verse afectado por sesgos inherentes al conjunto de datos original.
+- Los resultados deben interpretarse únicamente con fines educativos y de investigación.
+
+### 8. Limitaciones y Recomendaciones
+
+#### Limitaciones
+
+- Dataset relativamente pequeño.
+- Ausencia de validación externa.
+- Variables clínicas limitadas.
+
+#### Recomendaciones
+
+- Validar el modelo con cohortes independientes.
+- Incorporar variables clínicas adicionales.
+- Evaluar el desempeño en diferentes poblaciones antes de cualquier aplicación real.
+
+### 9. Conclusión
+
+El modelo Random Forest obtuvo el mejor desempeño entre los algoritmos evaluados, mostrando capacidad para identificar pacientes con riesgo de diabetes tipo 2 a partir de variables clínicas básicas. Sin embargo, su uso debe limitarse a fines educativos y de investigación hasta contar con validaciones adicionales.
+
+---
+
+## e. Resultados con Métricas de Evaluación Offline y Online
+
+### Evaluación Offline
+
+| Modelo              | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
+| ------------------- | -------: | --------: | -----: | -------: | ------: |
+| Logistic Regression |   0.7078 |    0.6000 | 0.5000 |   0.5455 |  0.8130 |
+| Random Forest       |   0.7792 |    0.7273 | 0.5926 |   0.6531 |  0.8192 |
+| XGBoost             |   0.7597 |    0.6735 | 0.6111 |   0.6408 |  0.8081 |
+| CatBoost            |   0.7403 |    0.6400 | 0.5926 |   0.6154 |  0.8224 |
+
+### Mejor Modelo
+
+Random Forest fue seleccionado como modelo final debido a que obtuvo el mejor desempeño global, alcanzando una Accuracy de 0.7792, Precision de 0.7273, F1-Score de 0.6531 y un ROC-AUC de 0.8192.
+
+---
+
+
+
+---
+
+## f. Mejoras Implementadas en MLE-2
+
+### 1. Seguimiento de Experimentos con MLflow
+
+Con el objetivo de mejorar la reproducibilidad y trazabilidad del proyecto, se incorporó **MLflow** para registrar automáticamente parámetros, métricas y artefactos generados durante el entrenamiento y evaluación de los modelos de Machine Learning.
+
+#### Parámetros registrados
+
+- Modelo: Random Forest
+- n_estimators: 100
+- random_state: 42
+
+#### Métricas registradas
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- ROC-AUC
+
+#### Beneficios
+
+- Reproducibilidad experimental.
+- Comparación de ejecuciones.
+- Gestión centralizada de métricas.
+- Registro de artefactos generados durante el proyecto.
+
+---
+
+### 2. Explainable AI mediante SHAP
+
+Para incrementar la interpretabilidad del modelo se implementó **SHAP (SHapley Additive Explanations)**, permitiendo identificar la contribución individual de cada variable en las predicciones realizadas por Random Forest.
+
+#### Variables más importantes según SHAP
+
+| Ranking | Variable | SHAP medio absoluto |
+|----------|----------|----------:|
+| 1 | Glucose | 0.1347 |
+| 2 | BMI | 0.0755 |
+| 3 | Age | 0.0548 |
+| 4 | DiabetesPedigreeFunction | 0.0411 |
+| 5 | Insulin | 0.0346 |
+| 6 | Pregnancies | 0.0271 |
+| 7 | SkinThickness | 0.0204 |
+| 8 | BloodPressure | 0.0144 |
+
+#### Artefactos generados
+
+- `artifacts/figures/shap_summary.png`
+- `artifacts/metrics/shap_feature_importance.csv`
+
+#### Interpretación
+
+Los resultados muestran que la glucosa, el índice de masa corporal y la edad constituyen los principales factores utilizados por el modelo para identificar pacientes con riesgo de diabetes, hallazgo consistente con la evidencia clínica disponible.
+
+---
+
+### 3. Integración de Large Language Models (LLM)
+
+Se integró la API de **Google Gemini 3.6 Flash** con el objetivo de generar explicaciones clínicas automáticas basadas en los resultados obtenidos mediante SHAP.
+
+Esta integración permite transformar resultados técnicos de Machine Learning en explicaciones interpretables para profesionales de salud e investigadores.
+
+---
+
+### 4. Implementación de Retrieval-Augmented Generation (RAG)
+
+Se desarrolló una implementación simplificada de **Retrieval-Augmented Generation (RAG)** utilizando una base de conocimiento clínica construida a partir de las variables más relevantes identificadas por SHAP.
+
+#### Variables utilizadas para recuperación de contexto
+
+- Glucose
+- BMI
+- Age
+
+#### Flujo implementado
+
+1. Entrenamiento del modelo Random Forest.
+2. Obtención de explicaciones mediante SHAP.
+3. Selección de variables más relevantes.
+4. Recuperación de información clínica asociada.
+5. Incorporación del contexto recuperado al prompt.
+6. Generación de explicaciones mediante Gemini.
+
+#### Beneficios
+
+- Incrementa la interpretabilidad del modelo.
+- Reduce la dependencia exclusiva del conocimiento interno del LLM.
+- Permite generar explicaciones fundamentadas en conocimiento recuperado previamente.
+
+---
+
+### 5. Arquitectura Final del Proyecto
+
+```text
+Dataset
+   │
+   ▼
+Preprocessing
+   │
+   ▼
+Random Forest
+   │
+   ├── MLflow Tracking
+   │
+   ├── SHAP Explainability
+   │
+   └── Top Features
+           │
+           ▼
+      Knowledge Retrieval
+           │
+           ▼
+        Gemini LLM
+           │
+           ▼
+ Clinical Interpretation
+```
+
+---
+
+### 6. Artefactos Generados
+
+#### Figuras
+
+- `artifacts/figures/shap_summary.png`
+
+#### Métricas
+
+- `artifacts/metrics/shap_feature_importance.csv`
+
+
+## g. Conclusiones
+
+1. Se desarrolló un flujo completo de Machine Learning para la predicción de diabetes tipo 2, incluyendo análisis exploratorio de datos, preprocesamiento, entrenamiento de modelos y evaluación de desempeño.
+
+2. Durante la etapa de preprocesamiento se identificaron valores fisiológicamente imposibles en variables como glucosa, presión arterial, espesor del pliegue cutáneo, insulina e índice de masa corporal. Estos valores fueron tratados como datos faltantes implícitos e imputados mediante la mediana.
+
+3. Se compararon cuatro algoritmos de clasificación supervisada: Logistic Regression, Random Forest, XGBoost y CatBoost. Entre ellos, Random Forest presentó el mejor desempeño global, alcanzando una Accuracy de 0.7792, Precision de 0.7273, F1-Score de 0.6531 y ROC-AUC de 0.8192.
+
+4. El análisis de importancia de variables mostró que la concentración de glucosa fue el predictor más relevante para la clasificación de pacientes con diabetes, seguida por el índice de masa corporal (BMI), la función de riesgo hereditario de diabetes y la edad. Estos hallazgos son consistentes con factores de riesgo ampliamente descritos en la literatura médica.
+
+5. Los resultados obtenidos evidencian que los modelos de Machine Learning pueden contribuir a la identificación temprana de individuos con riesgo de diabetes utilizando únicamente variables clínicas y antropométricas.
+
+6. Debido a que el estudio se realizó sobre un conjunto de datos público y una población específica, se recomienda realizar validaciones adicionales con cohortes independientes antes de considerar cualquier aplicación clínica o asistencial del modelo desarrollado.
+
+7. La incorporación de MLflow, SHAP, Gemini y una estrategia básica de Retrieval-Augmented Generation permitió evolucionar el proyecto desde un modelo predictivo tradicional hacia una solución reproducible, interpretable y asistida por inteligencia artificial generativa.
+---
+
+## h. Estrategia de Git Utilizada
+
+Para la gestión del proyecto se utilizó una estrategia simplificada inspirada en Git Flow, con el objetivo de mantener una separación entre el desarrollo de nuevas funcionalidades y la versión estable del proyecto.
+
+### Ramas utilizadas
+
+- **main:** contiene la versión estable y final del proyecto.
+- **development:** utilizada para realizar modificaciones, mejoras y actualizaciones antes de integrarlas a la rama principal.
+
+### Flujo de trabajo
+
+1. Se creó la rama `development` a partir de `main`.
+2. Algunos cambios finales fueron desarrollados y documentados en la rama `development`.
+3. Una vez validados los cambios, se creó un Pull Request desde `development` hacia `main`.
+4. El Pull Request fue revisado y fusionado exitosamente mediante un Merge.
+5. Finalmente, se generó la versión estable **v1.0.0** utilizando la funcionalidad de Releases de GitHub.
+
+### Beneficios de la estrategia utilizada
+
+- Mantener una versión estable del proyecto en la rama principal.
+- Facilitar el seguimiento de cambios mediante Pull Requests.
+- Permitir la trazabilidad del desarrollo y las modificaciones realizadas.
+- Seguir buenas prácticas de gestión de proyectos de Machine Learning y Data Science.
